@@ -1,0 +1,9 @@
+mu=[0,0];
+Sigma=[1, 0.8 ;0.8  ,1];
+R=mvnrnd(mu,Sigma,100000);
+w=var(R(:,1)+R(:,2));
+z=var(R(:,1))+var(R(:,2));
+disp(['Var[X+Y] = ',num2str(w)]);
+disp(['Var[X]+Var[Y] = ',num2str(z)]);
+disp(['Cov(X,Y) = ',num2str(Sigma(1,2))]);
+disp(['Var[X+Y]-Var[X]-Var[Y]-2Cov(X+Y) = ',num2str(w-z-2*Sigma(1,2))]);
